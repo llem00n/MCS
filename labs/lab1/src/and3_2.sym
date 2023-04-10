@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="and3_2">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2023-3-18T13:24:59</timestamp>
+    <attr value="AND3B2" name="VeriModel" />
+    <attr value="AND" name="Device" />
+    <attr value="Copy Of Symbol With Level: XILINX" name="Level" />
+    <attr value="AND3B2" name="VhdlModel" />
+    <attr value="2.0.0" name="Libver" />
+    <pin polarity="Output" x="256" y="-128" name="O" />
+    <pin polarity="Input" x="0" y="-192" name="I0" />
+    <pin polarity="Input" x="0" y="-64" name="I1" />
+    <pin polarity="Input" x="0" y="-128" name="I2" />
+    <graph>
+        <line x2="40" y1="-64" y2="-64" x1="0" />
+        <line x2="64" y1="-128" y2="-128" x1="0" />
+        <line x2="40" y1="-192" y2="-192" x1="0" />
+        <line x2="192" y1="-128" y2="-128" x1="256" />
+        <line x2="64" y1="-64" y2="-192" x1="64" />
+        <arc ex="144" ey="-176" sx="144" sy="-80" r="48" cx="144" cy="-128" />
+        <line x2="64" y1="-80" y2="-80" x1="144" />
+        <line x2="144" y1="-176" y2="-176" x1="64" />
+        <text style="fontsize:24;fontname:Arial" x="32" y="-32">AND3B2</text>
+        <circle r="12" cx="52" cy="-192" />
+        <circle r="12" cx="52" cy="-64" />
+    </graph>
+</symbol>
