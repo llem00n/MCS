@@ -1,5 +1,4 @@
 -- DECODER.VHD
-
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
@@ -36,7 +35,7 @@ BEGIN
 		bcd := (OTHERS => '0');
 		hex_src := ACC_DATA_OUT_BUS;
 
-		FOR X IN hex_src'RANGE LOOP
+		FOR i IN hex_src'RANGE LOOP
 			IF bcd(3 DOWNTO 0) > "0100" THEN
 				bcd(3 DOWNTO 0) := bcd(3 DOWNTO 0) + "0011";
 			END IF;
@@ -87,7 +86,7 @@ BEGIN
 						COMMONS_CTRL := "000";
 				END CASE;
 
-				CASE DIGIT_VAL IS
+				CASE DIGIT_VAL IS --abcdefg
 					WHEN "0000" => DIGIT_CTRL := "1111110";
 					WHEN "0001" => DIGIT_CTRL := "0110000";
 					WHEN "0010" => DIGIT_CTRL := "1101101";

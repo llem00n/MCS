@@ -1,31 +1,35 @@
 -- ACC.VHD
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
-LIBRARY IEEE;
-USE IEEE.STD_LOGIC_1164.ALL;
+entity ACC_INTF is
+port (
+	CLOCK: in std_logic;
+	DATA_IN_BUS: in std_logic_vector(7 downto 0);
+	WR: in std_logic;
+	RST: in std_logic;
+	DATA_OUT_BUS: out std_logic_vector(7 downto 0));
+end ACC_INTF;
 
-ENTITY ACC_INTF IS
-	PORT (
-		CLOCK : IN STD_LOGIC;
-		DATA_IN_BUS : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
-		WR : IN STD_LOGIC;
-		RST : IN STD_LOGIC;
-		DATA_OUT_BUS : OUT STD_LOGIC_VECTOR (7 DOWNTO 0));
-END ACC_INTF;
-
-ARCHITECTURE ACC_ARCH OF ACC_INTF IS
-	SIGNAL DATA : STD_LOGIC_VECTOR (7 DOWNTO 0);
-BEGIN
-	MAIN : PROCESS (CLOCK, DATA)
-	BEGIN
-		IF (rising_edge(CLOCK)) THEN
-			IF (RST = '1') THEN
+architecture ACC_ARCH of ACC_INTF is
+	signal DATA: std_logic_vector(7 downto 0);
+begin
+	ACC_IN : process(CLOCK)
+	 begin
+	 	if (rising_edge(CLOCK)) then
+			if(RST = '1') then
 				DATA <= "00000000";
-			ELSIF (WR = '1') THEN
+			elsif (WR = '1') then
 				DATA <= DATA_IN_BUS;
-			END IF;
-		END IF;
-		
-		DATA_OUT_BUS <= DATA;
-	END PROCESS MAIN;
+			end if;			
+		end if;
+	 end process ACC_IN;
+	 
+	 ACC_OUT : process(CLOCK)
+	 begin
+	 	if (rising_edge(CLOCK)) then
+			DATA_OUT_BUS <= DATA;
+		end if;
+	 end process ACC_OUT;
+end ACC_ARCH;
 
-END ACC_ARCH;
